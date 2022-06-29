@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/9b8091767f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css"> 
+</style>
+<script type="text/javascript">
+    function validateform() {
+        var username = document.getElementById("Username");
+        var email = document.getElementById("Email");
+        var pass = document.getElementById("password");
+        var cpass = document.getElementById("confirm_password");
+        if (username.value == "") {
+            window.alert("Enter username");
+            username.focus();
+            return false;
+        }
+        if (email.value == "") {
+            window.alert("Enter email address");
+            email.focus();
+            return false;
+        }
+        if (username.value == "" || username.value.length < 3 || username.value.length > 30) {
+            window.alert("Enter correct username");
+            username.focus();
+            return false;
+        }
+        if (pass.value == "") {
+            window.alert("Enter password");
+            pass.focus();
+            return false;
+        }
+        if (cpass.value == "") {
+            window.alert("Enter confirm password");
+            cpass.focus();
+            return false;
+        }
+        if (pass.value != cpass.value) {
+            window.alert("Passwords don't match");
+            cpass.focus();
+            return false;
+        }
+        var email_re = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+        if (!email_re.test(email.value)) {
+            window.alert("Improper email address");
+            email.style.border = "red solid 3px";
+            return false;
+        }
+        var username_re = /^[a-zA-Z0-9]([.-](?![.-])|[a-zA-Z0-9])+$/;
+        if (!username_re.test(username.value)) {
+            window.alert("Incorrect username format, username must contain only alphabets and digits");
+            username.style.border = "red solid 3px";
+            return false;
+        }
+    }
+</script>
+</head>
+<body>
+    <div class=" container">
+        <img src="images\logo.png" class="hello">
+    </div>
+    <ul>
+        <li><a href="cart.html"><i class="fa fa-shopping-cart"></i></a></li>
+            <li ><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="home.html">Home</a></li>
+    </ul>
+    <center>
+        <h1>BookThrift</h1>
+        <form name="myform" method=[POST,GET]  class="register">
+            <br>
+            <label for="Username"><strong>Enter the Username:</strong></label><br>
+            <input type="text" id="Username" name="Username" required><br><br>
+            <label for="Email"><strong>Email id:</strong></label><br>
+            <input type="text" id="Email" name="Email" required><br><br>
+            <label for="password"><strong>Password:</strong></label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <label for="password"><strong>Confirm Password:</strong></label><br>
+            <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+            <input type="submit" onclick="validateform()" value="Register"><br><br>
+            <p><i>Already have an account?</i></p><br>
+            <a href="login.html" id="reg"><e>Login!</e></a>
+        </form>
+    </center>
+
+                  
+</body><br>
+<footer>
+    <div class="main-content">
+        <div class="left box">
+            <h2>About us</h2>
+            <div class="content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi tenetur eius iure veritatis suscipit obcaecati hic, itaque enim ad quod molestias laboriosam alias unde architecto in. Iusto magni dolore qui.
+                </p>
+                <div class="social">
+                    <a href="#"><span class="fa fa-facebook"></span></a>
+                    <a href="#"><span class="fa fa-twitter"></span></a>
+                    <a href="#"><span class="fa fa-instagram"></span></a>
+                    <a href="#"><span class="fa fa-youtube-play"></span></a>
+  
+                </div>
+            </div>
+        </div>
+        <div class="center box">
+            <h2>Address</h2>
+            
+            <div class="content">
+                <div class="place">
+                    <span class="fa fa-map-marker"></span>
+                    <span class="text">Lorem ipsum dolor sit amet.</span>
+                </div>
+                <div class="phone">
+                    <span class="fa fa-mobile-phone"></span>
+                    <span class="text">+9876543210</span>
+                </div>
+                <div class="email">
+                    <span class="fa fa-envelope-open"></span>
+                    <span class="text">abc@gmail.com</span>
+                </div>
+            </div>
+        </div>
+        <div class="right box">
+            <h2>Contact Us</h2>
+            <div class="content">
+                <form action="#">
+                    <div class="email">
+                        <div class="text">Email*</div>
+                        <input type="email" required>
+                    </div>
+                    <div class="msg">
+                        <div class="text">Message*</div>
+                        <textarea rows="2" cols="25" required></textarea>
+                    </div>
+                    <div class="btn">
+                        <button type="submit">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+  
+    </div>
+    <div class="bottom">
+        <div class="center">
+            <span class="credit">Created by </span>
+            <span class="fa fa-copyright"></span><span>2022 All rights reserved.</span>
+        </div>
+    </div>
+  </footer>
+</html>

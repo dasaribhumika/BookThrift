@@ -1,0 +1,65 @@
+<div ng-app="myApp" ng-controller="searchController_fiction">
+    <div class="dropdown">
+
+        <button class="dropbtn"><i class="fas fa-bars"></i></button>
+            <div class="dropdown-content">
+                <a href="#!/fiction">Literature and Fiction</a>
+                <a href="#!/crime">Crime, suspense, and thrillers</a>
+                <a href="#!/romance">Romance</a>
+                <a href="#!/classics">Classics</a>
+                <a href="#!/nonfiction">Non-fiction</a>
+                <a href="#!/youngadult">Young adult</a>
+            </div>
+            
+    </div>   
+    <div class="search">
+      <input type="text" placeholder="Search.." ng-model="searchtext" name=search />
+      <button type="submit" ><i class="fa fa-search"></i></button>
+    </div>
+    <div class="dropdown">
+    <button class="dropbtn"><i class='fas fa-user-alt'></i></button>
+                <div class="dropdown-content">
+                    <a href="#!/account">Account</a>
+                    <a href="#!/order">Order</a>
+                    <a href="#!/login">Logout</a>
+                    <a href="#!/sell">Sell books</a>
+                </div>
+    </div>
+    <div class="container2">
+        <img src="images\fiction.jpg" alt="img" height="300" width="100%">
+    </div><br>
+
+    <div class="container3">
+      <div class="grid-item" ng-repeat="f in fiction | filter:searchtext">
+          <article class="cardimage">
+              <img ng-src = "{{f.book_image}}" style="width: 200px;height: 300px"/>
+          </article>
+          <h3>{{f.book_name}}</h3>
+          <h4 class="sname">{{f.author}}</h4>
+          <p class="price">Rs{{f.price}}</h4>
+          <p><button ng-click="add_cart(f)">Add to bag</button></p>
+      </div>
+  </div>
+  <table class = "table">
+    <thead>
+        <tr>
+        <th>Book Name</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat = "cart in carts" ng-init = "setTotals(cart)">
+            <td>{{cart.book_name}}</td>
+            <td>{{cart.author}}</td>
+            <td>Rs{{cart.price|number}}</td>
+            <td><button type = "button"  ng-click = "remove_cart(cart)" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-remove-sign"></span>Remove</button></td>
+        </tr>
+        <tr>
+            <td align = "right">Total</td>
+            <td>Rs{{total}}</td>
+        </tr>
+    </tbody>
+    </table>         
+</div>

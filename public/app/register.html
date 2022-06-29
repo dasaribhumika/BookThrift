@@ -1,0 +1,56 @@
+<div ng-app="myApp" ng-controller="userController">
+    <center>
+        <h1><b>BookThrift</b></h1>
+        <form ng-app="myApp"  name="myForm" class="register"  novalidate ng-submit="register.regUser(regData)"> 
+
+                <p>Username:<br>
+                <input type="text" name="user" ng-model="register.regData.username" ng-pattern="re1" required><br>
+                <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+                <span ng-show="myForm.user.$error.required">Username is required.</span>
+                </span>
+                </p>
+
+                <p>Email:<br>
+                <input type="email" name="email" ng-model="register.regData.email" ng-pattern="re"required><br>
+                <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                <span ng-show="myForm.email.$error.required">Email is required.</span>
+                <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+                </span>
+                </p>
+                
+                <p>Password:<br>
+                    <input type="password" name="pass" ng-model="register.regData.password"  required><br>
+                    <span style="color:red" ng-show="myForm.pass.$dirty && myForm.pass.$invalid">
+                    <span ng-show="myForm.pass.$error.required">
+                        <small ng-show="myForm.pass.$error.required">Password is required.</small>
+                        <small ng-show="myForm.pass.$error.password">Invalid password.</small>
+                    </span>
+                    </span>
+                </p>
+                
+                <p>Confirm password:<br>
+                    <input type="password" name="con_pass" ng-model="register.regData.confirm_password" ng-keyup="compare(con_pass)"  required><br>
+                    <span style="color:red" ng-show="myForm.con_pass.$dirty && myForm.con_pass.$invalid">
+                    <span ng-show="myForm.con_pass.$error.required">
+                        <small ng-show="myForm.con_pass.$error.required">Confirm password is required.</small>
+                        <small ng-show="myForm.con_pass.$error.password">Invalid password.</small>
+                    </span>
+                    </span>
+                </p>
+                <p id="demo">
+                <button type="submit" class="btn" 
+                ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  myForm.email.$dirty && myForm.email.$invalid">Register</button>
+                </p>
+                <p><i>Already have an account?</i></p>
+                <a href="#!/login" id="reg"><e>Login!</e></a>
+                </form>
+                <br>
+                <div ng-show="register.success_message">
+                    <div class="success">{{register.success_message}}</div>
+                </div><br>
+                <div ng-show="register.error_message">
+                    <div class="error">{{register.error_message}}</div>
+                </div>
+                
+    </center>
+</div><br>

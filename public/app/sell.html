@@ -1,0 +1,133 @@
+<div ng-app="myApp" ng-controller="ctrl">
+    <div class="dropdown">
+
+        <button class="dropbtn"><i class="fas fa-bars"></i></button>
+            <div class="dropdown-content">
+                <a href="#!/fiction">Literature and Fiction</a>
+                <a href="#!/crime">Crime, suspense, and thrillers</a>
+                <a href="#!/romance">Romance</a>
+                <a href="#!/classics">Classics</a>
+                <a href="#!/nonfiction">Non-fiction</a>
+                <a href="#!/youngadult">Young adult</a>
+            </div>
+            
+    </div>   
+    <div class="search">
+      <input type="text" placeholder="Search.." ng-model="searchtext" name=search />
+      <button type="submit" ><i class="fa fa-search"></i></button>
+    </div>
+    <div class="dropdown">
+    <button class="dropbtn"><i class='fas fa-user-alt'></i></button>
+                <div class="dropdown-content">
+                    <a href="#!/account">Account</a>
+                    <a href="#!/order">Order</a>
+                    <a href="#!/login">Logout</a>
+                    <a href="#!/sell">Sell books</a>
+                </div>
+    </div>
+        <h1>Genre of the book:</h1>
+        <select ng-model="myVar">
+            <option value="fiction">Fiction
+            <option value="nonfiction">Non-fiction
+            <option value="crime">Crime,Thriller, and suspense
+            <option value="youngadult">youngadult
+            <option value="romance">Romance
+            <option value="classics">Classics
+        </select>
+        
+        <div ng-switch="myVar">
+          <div ng-switch-when="fiction">
+             <h1>Book condition:</h1>
+             <select>
+                 <option value="new">New</option>
+                 <option value="good">Good</option>
+                 <option value="used">Used</option>
+             </select><br>
+             <h1>Number of books</h1>
+             <input type="number"><br>
+             <!-- <a href="sold.html" id="reg"><e>Sell!</e></a> -->
+             <button ng-click="myfun()">Sell</button>
+             <h1 align="center" ng-show="value">{{msg1}}</h1>
+          </div>
+          <div ng-switch-when="nonfiction">
+            <h1>Book condition:</h1>
+             <select>
+                 <option value="new">New</option>
+                 <option value="good">Good</option>
+                 <option value="used">Used</option>
+             </select><br>
+             <h1>Number of books</h1>
+             <input type="number"><br>
+              <!-- <a href="sold.html" id="reg"><e>Sell!</e></a> -->
+              <button ng-click="myfun()">Sell</button>
+              <h1 align="center" ng-show="value">{{msg1}}</h1>
+            
+          </div>
+          <div ng-switch-when="crime">
+            <h1>Book condition:</h1>
+            <select>
+                <option value="new">New</option>
+                <option value="good">Good</option>
+                <option value="used">Used</option>
+            </select><br>
+            <h1>Number of books</h1>
+             <input type="number"><br> 
+             <!-- <a href="sold.html" id="reg"><e>Sell!</e></a> -->
+             <button ng-click="myfun()">Sell</button>
+             <h1 align="center" ng-show="value">{{msg1}}</h1>
+            
+          </div>
+          <div ng-switch-when="youngadult">
+            <h1>Book condition:</h1>
+             <select>
+                 <option value="new">New</option>
+                 <option value="good">Good</option>
+                 <option value="used">Used</option>
+             </select><br>
+             <h1>Number of books</h1>
+             <input type="number"><br>
+              <!-- <a href="sold.html" id="reg"><e>Sell!</e></a> -->
+              <button ng-click="myfun()">Sell</button>
+              <h1 align="center" ng-show="value">{{msg1}}</h1>
+            
+         </div>
+         <div ng-switch-when="romance">
+            <h1>Book condition:</h1>
+             <select>
+                 <option value="new">New</option>
+                 <option value="good">Good</option>
+                 <option value="used">Used</option>
+             </select><br>
+             <h1>Number of books</h1>
+             <input type="number"><br> 
+             <!-- <a href="sold.html" id="reg"><e>Sell!</e></a> -->
+             <button ng-click="myfun()">Sell</button>
+             <h1 align="center" ng-show="value">{{msg1}}</h1>
+             
+         </div>
+         <div ng-switch-when="classics">
+            <h1>Book condition:</h1>
+             <select>
+                 <option value="new">New</option>
+                 <option value="good">Good</option>
+                 <option value="used">Used</option>
+             </select><br>
+             <h1>Number of books</h1>
+             <input type="number"><br>
+              <!-- <a href="sold.html" id="reg"><e>Sell!</e></a> -->
+              <button ng-click="myfun()">Sell</button>
+              <h1 align="center" ng-show="value">{{msg1}}</h1>
+            
+         </div>
+          <div ng-switch-default>
+             <h1>Specify genre and condition</h1>
+             <p>Sell your books here and get best deals.</p>
+             <p><b>New:</b></p>
+             <p>A brand-new copy with cover and original protective wrapping intact. Books with markings of any kind on the cover or pages, books marked as "Bargain" or "Remainder," or with any other labels attached may not be listed as New condition.</p>
+             <p><b>Good:</b></p>
+             <p>All pages and cover are intact (including the dust cover, if applicable). Spine may show signs of wear. Pages may include limited notes and highlighting. May include "From the library of" labels. Shrink wrap, dust covers, or boxed set case may be missing. Item may be missing bundled media.</p>
+             <p><b>Used:</b></p>
+             <p>Item may have minor cosmetic defects (such as marks, wears, cuts, bends, or crushes) on the cover, spine, pages, or dust cover. Dust cover is intact and pages are clean and not marred by notes. Item may contain remainder marks on outside edges. Item may be missing bundled media.</p>
+          </div>
+        </div>
+</div><br>
